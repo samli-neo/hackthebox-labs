@@ -3,7 +3,7 @@
 <div align="center">
 
 ![HackTheBox](https://img.shields.io/badge/HackTheBox-Player-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black)
-![Machines Pwned](https://img.shields.io/badge/Machines%20Pwned-2-brightgreen?style=for-the-badge)
+![Machines Pwned](https://img.shields.io/badge/Machines%20Pwned-3-brightgreen?style=for-the-badge)
 ![Progress](https://img.shields.io/badge/Progress-Active-blue?style=for-the-badge)
 
 **CTF Writeups, Penetration Testing Notes, and Lab Documentation**
@@ -34,9 +34,9 @@ This repository contains detailed writeups, methodologies, and documentation for
 
 | Metric | Count |
 |--------|-------|
-| **Machines Pwned** | 2 |
-| **Starting Point** | 2/24 |
-| **Tier 0** | 2/8 |
+| **Machines Pwned** | 3 |
+| **Starting Point** | 3/24 |
+| **Tier 0** | 3/8 |
 | **Tier 1** | 0/8 |
 | **Tier 2** | 0/8 |
 | **Easy Machines** | 0 |
@@ -50,13 +50,13 @@ This repository contains detailed writeups, methodologies, and documentation for
 
 ## 🎮 Starting Point Progress
 
-### Tier 0 (Very Easy) - 2/8 Completed
+### Tier 0 (Very Easy) - 3/8 Completed
 
 | # | Machine | OS | Difficulty | Status | Writeup | Topics |
 |---|---------|----|-----------:|:------:|:-------:|--------|
 | 1 | **Meow** | Linux | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Meow) | Telnet, Weak Credentials |
 | 2 | **Fawn** | Linux | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Fawn) | FTP, Anonymous Login |
-| 3 | **Dancing** | Windows | ⭐ Very Easy | 🔒 | - | SMB, Network Shares |
+| 3 | **Dancing** | Windows | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Dancing) | SMB, Network Shares |
 | 4 | **Redeemer** | Linux | ⭐ Very Easy | 🔒 | - | Redis, NoSQL |
 | 5 | **Explosion** | Windows | ⭐ Very Easy | 🔒 | - | RDP, Remote Desktop |
 | 6 | **Preignition** | Linux | ⭐ Very Easy | 🔒 | - | Web, Directory Enumeration |
@@ -133,6 +133,33 @@ cat flag.txt
 
 ---
 
+### ✅ Dancing - SMB Network Shares
+
+**Completed:** 04 Jan 2026 | **Player:** #376247
+
+```bash
+# Key Commands
+nmap -sV -sC -p 445 <target_ip>
+smbclient -L //<target_ip> -N
+smbclient //<target_ip>/WorkShares -N
+> ls
+> cd James.P
+> get flag.txt
+cat flag.txt
+```
+
+**Learning Outcomes:**
+- SMB/CIFS protocol fundamentals (port 445)
+- Network share enumeration
+- Misconfigured share permissions
+- smbclient utility usage
+- Windows file sharing vulnerabilities
+- SMB security best practices
+
+[📖 Read Full Writeup →](./Starting-Point/Tier-0/Dancing)
+
+---
+
 ## 🛠️ Tools & Techniques
 
 ### Reconnaissance
@@ -143,6 +170,7 @@ cat flag.txt
 ### Enumeration
 - **nmap scripts** (`-sC`, `-sV`) - Service version detection
 - **enum4linux** - SMB enumeration
+- **smbclient** - SMB/CIFS share access
 - **nikto** - Web server scanning
 
 ### Exploitation
@@ -185,8 +213,8 @@ cat flag.txt
 
 ## 🎯 Current Goals (2026)
 
-- ✅ Complete Starting Point Tier 0 (2/8)
-- ⏳ Complete Starting Point Tier 1 (0/8)
+- ⏳ Complete Starting Point Tier 0 (3/8)
+- 🎯 Complete Starting Point Tier 1 (0/8)
 - 🎯 Complete Starting Point Tier 2 (0/8)
 - 🎯 Pwn 10+ HackTheBox machines
 - 🎯 Document all methodologies with detailed writeups
@@ -197,8 +225,8 @@ cat flag.txt
 ## 📊 Progress Tracker
 
 ```
-Starting Point Progress: ██░░░░░░░░ 8% (2/24)
-Tier 0: ██░░░░░░ 25% (2/8)
+Starting Point Progress: ███░░░░░░░ 12% (3/24)
+Tier 0: ███░░░░░ 38% (3/8)
 Tier 1: ░░░░░░░░  0% (0/8)
 Tier 2: ░░░░░░░░  0% (0/8)
 ```
