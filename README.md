@@ -3,7 +3,7 @@
 <div align="center">
 
 ![HackTheBox](https://img.shields.io/badge/HackTheBox-Player-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black)
-![Machines Pwned](https://img.shields.io/badge/Machines%20Pwned-3-brightgreen?style=for-the-badge)
+![Machines Pwned](https://img.shields.io/badge/Machines%20Pwned-4-brightgreen?style=for-the-badge)
 ![Progress](https://img.shields.io/badge/Progress-Active-blue?style=for-the-badge)
 
 **CTF Writeups, Penetration Testing Notes, and Lab Documentation**
@@ -34,9 +34,9 @@ This repository contains detailed writeups, methodologies, and documentation for
 
 | Metric | Count |
 |--------|-------|
-| **Machines Pwned** | 3 |
-| **Starting Point** | 3/24 |
-| **Tier 0** | 3/8 |
+| **Machines Pwned** | 4 |
+| **Starting Point** | 4/24 |
+| **Tier 0** | 4/8 |
 | **Tier 1** | 0/8 |
 | **Tier 2** | 0/8 |
 | **Easy Machines** | 0 |
@@ -50,14 +50,14 @@ This repository contains detailed writeups, methodologies, and documentation for
 
 ## 🎮 Starting Point Progress
 
-### Tier 0 (Very Easy) - 3/8 Completed
+### Tier 0 (Very Easy) - 4/8 Completed
 
 | # | Machine | OS | Difficulty | Status | Writeup | Topics |
 |---|---------|----|-----------:|:------:|:-------:|--------|
 | 1 | **Meow** | Linux | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Meow) | Telnet, Weak Credentials |
 | 2 | **Fawn** | Linux | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Fawn) | FTP, Anonymous Login |
 | 3 | **Dancing** | Windows | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Dancing) | SMB, Network Shares |
-| 4 | **Redeemer** | Linux | ⭐ Very Easy | 🔒 | - | Redis, NoSQL |
+| 4 | **Redeemer** | Linux | ⭐ Very Easy | ✅ | [📝](https://github.com/samli-neo/hackthebox-labs/tree/main/Starting-Point/Tier-0/Redeemer) | Redis, NoSQL |
 | 5 | **Explosion** | Windows | ⭐ Very Easy | 🔒 | - | RDP, Remote Desktop |
 | 6 | **Preignition** | Linux | ⭐ Very Easy | 🔒 | - | Web, Directory Enumeration |
 | 7 | **Mongod** | Linux | ⭐ Very Easy | 🔒 | - | MongoDB, NoSQL |
@@ -160,6 +160,32 @@ cat flag.txt
 
 ---
 
+### ✅ Redeemer - Redis Database Exploitation
+
+**Completed:** 05 Jan 2026 | **Player:** #286759
+
+```bash
+# Key Commands
+nmap -sV -p 6379 <target_ip>
+redis-cli -h <target_ip>
+> info
+> select 0
+> keys *
+> get <key_name>
+```
+
+**Learning Outcomes:**
+- Redis in-memory database fundamentals
+- NoSQL database enumeration
+- redis-cli command-line utility
+- Database selection and key retrieval
+- Misconfigured database security
+- Redis authentication best practices
+
+[📖 Read Full Writeup →](./Starting-Point/Tier-0/Redeemer)
+
+---
+
 ## 🛠️ Tools & Techniques
 
 ### Reconnaissance
@@ -213,7 +239,7 @@ cat flag.txt
 
 ## 🎯 Current Goals (2026)
 
-- ⏳ Complete Starting Point Tier 0 (3/8)
+- ⏳ Complete Starting Point Tier 0 (4/8)
 - 🎯 Complete Starting Point Tier 1 (0/8)
 - 🎯 Complete Starting Point Tier 2 (0/8)
 - 🎯 Pwn 10+ HackTheBox machines
@@ -225,13 +251,13 @@ cat flag.txt
 ## 📊 Progress Tracker
 
 ```
-Starting Point Progress: ███░░░░░░░ 12% (3/24)
-Tier 0: ███░░░░░ 38% (3/8)
+Starting Point Progress: ████░░░░░░ 17% (4/24)
+Tier 0: ████░░░░ 50% (4/8)
 Tier 1: ░░░░░░░░  0% (0/8)
 Tier 2: ░░░░░░░░  0% (0/8)
 ```
 
-**Last Updated:** 04 January 2026
+**Last Updated:** 05 January 2026
 
 ---
 
